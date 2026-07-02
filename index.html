@@ -24,6 +24,11 @@
         padding: 0;
         box-sizing: border-box;
       }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
       body {
         margin: 0;
         font-family: Arial;
@@ -266,20 +271,21 @@
 
       .contact {
         padding: 70px 20px;
-        color: white;
+        color: #555;
         align-items: center;
         background: #c8bbd2;
       }
 
       .contact-small {
         margin-bottom: 20px;
-        font-size: 12px;
+        font-size: 15px;
       }
 
       .contact h2 {
         /* margin-left: 360px; */
         /* max-width: 500px; */
         margin-bottom: 30px;
+        font-size: 2rem;
       }
 
       .contact-form {
@@ -415,6 +421,10 @@
           padding: 44px 60px;
         }
 
+        .content h2 {
+          font-size: 1.5rem;
+        }
+
         .input {
           margin-bottom: 12px;
           display: flex;
@@ -443,14 +453,15 @@
   <body>
     <header class="navbar">
       <div class="link">
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Work</a>
-        <a href="#">Contact</a>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skill">Skills</a>
+        <a href="#work">Work</a>
+        <a href="#contact">Contact</a>
       </div>
     </header>
 
-    <section class="hero">
+    <section class="hero" id="home">
       <div class="heading">
         <h1>Arooj Mehmood</h1>
         <p>Frontend Web Developer | BSCS Student | Learning MERN Stack</p>
@@ -481,7 +492,7 @@
       </div>
     </section>
 
-    <section class="About">
+    <section class="About" id="about">
       <h2>
         I am a Web Developer and Meanwhile a student of Computer Science. I love
         to generate new ideas and work on them to make them functional.
@@ -504,7 +515,7 @@
       </div>
     </section>
 
-    <section class="skills">
+    <section class="skills" id="skill">
       <h2>Technical Skills</h2>
 
       <p>
@@ -563,7 +574,7 @@
       </div>
     </section>
 
-    <section class="projects">
+    <section class="projects" id="work">
       <h2>My Projects</h2>
 
       <p class="project-heading">
@@ -625,7 +636,7 @@
       </div>
     </section>
 
-    <section class="contact">
+    <section class="contact" id="contact">
       <p class="contact-small">
         Want to work together?<br />
         I'd love to hear from you
