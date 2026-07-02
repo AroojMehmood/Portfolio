@@ -4,12 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio</title>
-     <link rel="stylesheet" media= "screen and(max-width: 700px)" href= "/phone-portfolio.css">
+    <link
+      rel="stylesheet"
+      media="screen and(max-width: 700px)"
+      href="/phone-portfolio.css"
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
 
     <style>
       * {
@@ -22,79 +29,65 @@
         font-family: Arial;
       }
 
-      .link{
+      .link {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
 
-    position:fixed;
-    top:0;
-    width:100%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:30px;
+        background: rgba(49, 52, 63, 0.75);
+        backdrop-filter: blur(12px);
 
-    background:rgba(49, 52, 63, 0.75);
-    backdrop-filter:blur(12px);
+        padding: 18px 0;
+        z-index: 1000;
+      }
 
-    padding:18px 0;
-    z-index:1000;
+      .link a {
+        color: white;
+        text-decoration: none;
+        font-size: 17px;
+        font-weight: 500;
+        transition: 0.3s;
+      }
 
-}
+      .link a:hover {
+        color: #64b5ff;
+      }
 
-.link a{
+      .hero {
+        height: 100vh;
 
-    color:white;
-    text-decoration:none;
-    font-size:17px;
-    font-weight:500;
-    transition:.3s;
+        background: url("bg.jpg");
 
-}
+        background-size: cover;
+        background-position: center;
 
-.link a:hover{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
 
-    color:#64b5ff;
+        color: #333;
 
-}
+        position: relative;
 
-     .hero{
+        padding: 0 20px;
+      }
 
-    height:100vh;
-   
-    background:
-    
-    url("bg.jpg");
+      .heading h1 {
+        font-size: 65px;
+        margin-bottom: 20px;
+        font-weight: bold;
+      }
 
-    background-size:cover;
-    background-position:center;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-
-    color:#333;
-
-    position:relative;
-
-    padding:0 20px;
-
-}
-
-     .heading h1{
-
-    font-size:65px;
-    margin-bottom:20px;
-    font-weight:bold;
-
-}
-
-.heading p{
-
-    font-size:22px;
-    color:#555;
-    letter-spacing:1px;
-
-}
+      .heading p {
+        font-size: 22px;
+        color: #555;
+        letter-spacing: 1px;
+      }
 
       .hero-bottom {
         display: flex;
@@ -111,19 +104,19 @@
         color: #555;
         margin: 10px;
         font-size: 25px;
-        display:inline-block;
-        transition:transform 0.3s;
+        display: inline-block;
+        transition: transform 0.3s;
       }
-      .left p  {
+      .left p {
         margin: 10px;
         font-size: 15px;
-        display:inline-block;
+        display: inline-block;
       }
 
       .github:hover,
       .linkedin:hover {
         /* font-size: 30px; */
-        transform:scale(2.0);
+        transform: scale(2);
       }
 
       .right {
@@ -168,125 +161,108 @@
         line-height: 1.6;
       }
 
-      .skills{
-    padding:40px 10%;
-    text-align:center;
-    background: #bdd1d9;;
-}
+      .skills {
+        padding: 40px 10%;
+        text-align: center;
+        background: #bdd1d9;
+      }
 
-.skills h2{
-    font-size:37px;
-    margin-bottom:20px;
-    color: #333;
-}
+      .skills h2 {
+        font-size: 37px;
+        margin-bottom: 20px;
+        color: #333;
+      }
 
-.skills p{
-    max-width:800px;
-    margin:auto;
-    line-height:1.8;
-    color:#666;
-}
+      .skills p {
+        max-width: 800px;
+        margin: auto;
+        line-height: 1.8;
+        color: #666;
+      }
 
-.skills-container{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:20px;
-    margin-top:40px;
-}
+      .skills-container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-top: 40px;
+      }
 
-.skill{
-    width:170px;
-    padding:25px;
-    border-radius:12px;
-    background:#fff;
-    box-shadow:0 0 10px rgba(0,0,0,.1);
-    transition:.3s;
-}
+      .skill {
+        width: 170px;
+        padding: 25px;
+        border-radius: 12px;
+        background: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        transition: 0.3s;
+      }
 
-.skill:hover{
-    transform:translateY(-8px);
-}
+      .skill:hover {
+        transform: translateY(-8px);
+      }
 
-.skill i{
-    font-size:45px;
-    color:#6C63FF;
-    margin-bottom:15px;
-}
+      .skill i {
+        font-size: 45px;
+        color: #6c63ff;
+        margin-bottom: 15px;
+      }
 
-.skill span{
-    display:block;
-    font-size:18px;
-    font-weight:600;
-}
+      .skill span {
+        display: block;
+        font-size: 18px;
+        font-weight: 600;
+      }
 
-.projects{
+      .projects {
+        padding: 40px 8%;
+        background: #d0d5dd;
+        text-align: center;
+      }
 
-    padding:40px 8%;
-    background:#d0d5dd;
-    text-align:center;
+      .projects h2 {
+        font-size: 40px;
+        color: #222;
+        margin-bottom: 20px;
+      }
 
-}
+      .project-heading {
+        max-width: 800px;
+        margin: auto;
+        color: #666;
+        line-height: 1.8;
+        margin-bottom: 50px;
+      }
 
-.projects h2{
+      .project-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
 
-    font-size:40px;
-    color:#222;
-    margin-bottom:20px;
+      .project-card {
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        transition: 0.3s;
+        text-align: left;
+      }
 
-}
+      .project-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+      }
 
-.project-heading{
+      .project-card h3 {
+        color: #23335d;
+        margin-bottom: 15px;
+        font-size: 22px;
+      }
 
-    max-width:800px;
-    margin:auto;
-    color:#666;
-    line-height:1.8;
-    margin-bottom:50px;
-
-}
-
-.project-container{
-
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:30px;
-
-}
-
-.project-card{
-
-    background:white;
-    padding:30px;
-    border-radius:15px;
-    box-shadow:0 5px 15px rgba(0,0,0,.08);
-    transition:.3s;
-    text-align:left;
-
-}
-
-.project-card:hover{
-
-    transform:translateY(-8px);
-    box-shadow:0 12px 25px rgba(0,0,0,.15);
-
-}
-
-.project-card h3{
-
-    color:#23335d;
-    margin-bottom:15px;
-    font-size:22px;
-
-}
-
-.project-card p{
-
-    color:#555;
-    line-height:1.7;
-
-}
-
+      .project-card p {
+        color: #555;
+        line-height: 1.7;
+      }
 
       .contact {
         padding: 70px 20px;
@@ -349,137 +325,120 @@
 
       /* Responsive design */
 
-      @media(max-width:768px){
+      @media (max-width: 768px) {
+        .projects {
+          padding: 50px 20px;
+        }
 
-.projects{
+        .projects h2 {
+          font-size: 28px;
+        }
 
-padding:50px 20px;
+        .project-card {
+          padding: 20px;
+        }
+      }
 
-}
-
-.projects h2{
-
-font-size:28px;
-
-}
-
-.project-card{
-
-padding:20px;
-
-}
-
-}
-
-       @media only screen and (max-width:660px){
-
-        .link{
+      @media only screen and (max-width: 660px) {
+        .link {
           gap: 0px;
           padding: 5px;
         }
-      .link a {
-        text-decoration: none;
-        padding: 9px 4px;
-        color: white;
-        cursor: pointer;
-        margin: 4px 8px;
-        
-      }
+        .link a {
+          text-decoration: none;
+          padding: 9px 4px;
+          color: white;
+          cursor: pointer;
+          margin: 4px 8px;
+        }
 
-      .heading h1 {
-        font-size: 20px;
-        margin-bottom: 13px;
-      }
+        .heading h1 {
+          font-size: 20px;
+          margin-bottom: 13px;
+        }
 
-      .heading p{
-        font-size: 12px;
-      }
+        .heading p {
+          font-size: 12px;
+        }
 
-      .hero {
-        height: 310px;
-    padding-top: 25px;
-    padding-left:7px ;
-    padding-right:7px ;
-      }
+        .hero {
+          height: 310px;
+          padding-top: 25px;
+          padding-left: 7px;
+          padding-right: 7px;
+        }
 
         .hero-bottom {
-        position: absolute;
-        bottom: 0px;
-        left: 0px;
-        width: 100%;
-        padding: 0px 25px;
-        font-size: 5px;
-      }
-      .left p  {
-        font-size: 12px;
-      }
-      .right p  {
-        font-size: 11px;
-      }
+          position: absolute;
+          bottom: 0px;
+          left: 0px;
+          width: 100%;
+          padding: 0px 25px;
+          font-size: 5px;
+        }
+        .left p {
+          font-size: 12px;
+        }
+        .right p {
+          font-size: 11px;
+        }
 
-      .About {
-        background: #f5f5f5;
-        padding: 44px 44px;
+        .About {
+          background: #f5f5f5;
+          padding: 44px 44px;
+        }
+
+        .About h2 {
+          color: #333;
+          font-size: 15px;
+          margin-bottom: 20px;
+        }
+
+        .about-content {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+        }
+
+        .image {
+          padding: 6px;
+          width: 140px;
+        }
+
+        .about-text {
+          width: 400px;
+          font-size: 11px;
+          line-height: 1.3;
+        }
+
+        .contact {
+          padding: 44px 60px;
+        }
+
+        .input {
+          margin-bottom: 12px;
+          display: flex;
+          gap: 10px;
+        }
+
+        .input input {
+          padding: 6px;
+        }
+
+        .contact-form textarea {
+          height: 70px;
+          padding: 6px;
+          margin-bottom: 12px;
+        }
+
+        .contact button {
+          padding: 6px;
+          width: 50%;
+          display: block;
+          margin: auto;
+        }
       }
-
-         .About h2 {
-        color: #333;
-        font-size: 15px;
-        margin-bottom: 20px;
-      }
-      
-       .about-content {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-      }
-
-      .image {
-        
-        padding: 6px;
-        width: 140px;
-        
-      }
-
-      .about-text {
-    width: 400px;
-    font-size: 11px;
-    line-height: 1.3;
-}
-
-
-       .contact {
-        padding: 44px 60px;
-      }
-
-       .input {
-        margin-bottom: 12px;
-        display: flex;
-        gap: 10px;
-      }
-
-      .input input {
-    padding: 6px;
-}
-
-  .contact-form textarea {
-        
-        height: 70px;
-        padding: 6px;
-        margin-bottom: 12px;
-      }
-
-       .contact button {
-       
-        padding: 6px;
-  width: 50%;
-  display: block;
-  margin: auto;
-      }
-
-    }
     </style>
-
   </head>
   <body>
     <header class="navbar">
@@ -497,8 +456,6 @@ padding:20px;
         <p>Frontend Web Developer | BSCS Student | Learning MERN Stack</p>
       </div>
 
-
-      
       <div class="hero-bottom">
         <div class="left">
           <p>Nishter Colony,Lahore</p>
@@ -506,13 +463,20 @@ padding:20px;
 
         <div class="right">
           <p>Find me Online</p>
-          <a class="github" href="https://github.com/AroojMehmood" target="_blank">
-    <i class="fa-brands fa-github"></i>
-</a>
-<a class="linkedin" href="https://www.linkedin.com/in/zumar-shah-4525193a8" target="_blank">
-    <i class="fa-brands fa-linkedin"></i>
-</a>
-         
+          <a
+            class="github"
+            href="https://github.com/AroojMehmood"
+            target="_blank"
+          >
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a
+            class="linkedin"
+            href="https://www.linkedin.com/in/zumar-shah-4525193a8"
+            target="_blank"
+          >
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
         </div>
       </div>
     </section>
@@ -525,141 +489,141 @@ padding:20px;
 
       <div class="about-content">
         <div class="image">
-          <img src="profile.png" alt="profile">
+          <img src="profile.png" alt="profile" />
           <p>Arooj🌷</p>
         </div>
 
         <div class="about-text">
           <p>
-            I am a BS Computer Science student at the University of the Punjab with a CGPA of 3.53. I have built multiple frontend projects using HTML, CSS, and JavaScript, and I am currently learning the MERN Stack to become a Full Stack Web Developer.
+            I am a BS Computer Science student at the University of the Punjab
+            with a CGPA of 3.53. I have built multiple frontend projects using
+            HTML, CSS, and JavaScript, and I am currently learning the MERN
+            Stack to become a Full Stack Web Developer.
           </p>
         </div>
       </div>
     </section>
 
-<section class="skills">
+    <section class="skills">
+      <h2>Technical Skills</h2>
 
-    <h2>Technical Skills</h2>
+      <p>
+        During my BSCS journey, I have built a strong foundation in programming
+        and web development. I have learned HTML, CSS, JavaScript, SQL, C, C++,
+        Data Structures, Git, and GitHub through academic coursework and
+        personal practice. I am currently learning the MERN Stack to expand my
+        skills in full-stack development.
+      </p>
 
-    <p>
-        During my BSCS journey, I have built a strong foundation in programming and web development.
-        I have learned HTML, CSS, JavaScript, SQL, C, C++, Data Structures, Git, and GitHub through
-        academic coursework and personal practice. I am currently learning the MERN Stack to expand
-        my skills in full-stack development.
-    </p>
-
-    <div class="skills-container">
-
+      <div class="skills-container">
         <div class="skill">
-            <i class="fa-brands fa-html5"></i>
-            <span>HTML5</span>
+          <i class="fa-brands fa-html5"></i>
+          <span>HTML5</span>
         </div>
 
         <div class="skill">
-            <i class="fa-brands fa-css3-alt"></i>
-            <span>CSS3</span>
+          <i class="fa-brands fa-css3-alt"></i>
+          <span>CSS3</span>
         </div>
 
         <div class="skill">
-            <i class="fa-brands fa-js"></i>
-            <span>JavaScript</span>
+          <i class="fa-brands fa-js"></i>
+          <span>JavaScript</span>
         </div>
 
         <div class="skill">
-            <i class="fa-solid fa-database"></i>
-            <span>SQL</span>
+          <i class="fa-solid fa-database"></i>
+          <span>SQL</span>
         </div>
 
         <div class="skill">
-            <i class="fa-solid fa-code"></i>
-            <span>C</span>
+          <i class="fa-solid fa-code"></i>
+          <span>C</span>
         </div>
 
         <div class="skill">
-            <i class="fa-solid fa-laptop-code"></i>
-            <span>C++</span>
+          <i class="fa-solid fa-laptop-code"></i>
+          <span>C++</span>
         </div>
 
         <div class="skill">
-            <i class="fa-solid fa-diagram-project"></i>
-            <span>Data Structures</span>
+          <i class="fa-solid fa-diagram-project"></i>
+          <span>Data Structures</span>
         </div>
 
         <div class="skill">
-            <i class="fa-brands fa-git-alt"></i>
-            <span>Git</span>
+          <i class="fa-brands fa-git-alt"></i>
+          <span>Git</span>
         </div>
 
         <div class="skill">
-            <i class="fa-brands fa-github"></i>
-            <span>GitHub</span>
+          <i class="fa-brands fa-github"></i>
+          <span>GitHub</span>
         </div>
-
-    </div>
-
-</section>
+      </div>
+    </section>
 
     <section class="projects">
+      <h2>My Projects</h2>
 
-    <h2>My Projects</h2>
+      <p class="project-heading">
+        Here are some of the projects I have developed during my learning
+        journey. Each project helped me strengthen my frontend development
+        skills and improve my understanding of HTML, CSS, and JavaScript.
+      </p>
 
-    <p class="project-heading">
-        Here are some of the projects I have developed during my learning journey. Each project helped me strengthen my frontend development skills and improve my understanding of HTML, CSS, and JavaScript.
-    </p>
-
-    <div class="project-container">
-
+      <div class="project-container">
         <div class="project-card">
-            <h3>Portfolio Website</h3>
-            <p>
-                Designed and developed a responsive personal portfolio website to showcase my skills,
-                projects, and academic background using HTML and CSS.
-            </p>
+          <h3>Portfolio Website</h3>
+          <p>
+            Designed and developed a responsive personal portfolio website to
+            showcase my skills, projects, and academic background using HTML and
+            CSS.
+          </p>
         </div>
 
         <div class="project-card">
-            <h3>Online Meal Website</h3>
-            <p>
-                Created a responsive restaurant website featuring multiple pages, attractive layouts,
-                and user-friendly navigation using HTML and CSS.
-            </p>
+          <h3>Online Meal Website</h3>
+          <p>
+            Created a responsive restaurant website featuring multiple pages,
+            attractive layouts, and user-friendly navigation using HTML and CSS.
+          </p>
         </div>
 
         <div class="project-card">
-            <h3>Google Homepage Clone</h3>
-            <p>
-                Built a responsive clone of Google's homepage to improve my understanding of layouts,
-                positioning, and CSS styling.
-            </p>
+          <h3>Google Homepage Clone</h3>
+          <p>
+            Built a responsive clone of Google's homepage to improve my
+            understanding of layouts, positioning, and CSS styling.
+          </p>
         </div>
 
         <div class="project-card">
-            <h3>Quote Generator</h3>
-            <p>
-                Developed an interactive quote generator using JavaScript that displays random
-                motivational quotes with a single click.
-            </p>
+          <h3>Quote Generator</h3>
+          <p>
+            Developed an interactive quote generator using JavaScript that
+            displays random motivational quotes with a single click.
+          </p>
         </div>
 
         <div class="project-card">
-            <h3>Stopwatch</h3>
-            <p>
-                Built a functional stopwatch using JavaScript with Start, Stop, and Reset features,
-                improving my understanding of timers and DOM manipulation.
-            </p>
+          <h3>Stopwatch</h3>
+          <p>
+            Built a functional stopwatch using JavaScript with Start, Stop, and
+            Reset features, improving my understanding of timers and DOM
+            manipulation.
+          </p>
         </div>
 
         <div class="project-card">
-            <h3>Gym Website</h3>
-            <p>
-                Designed a modern and responsive gym website with a clean user interface and
-                visually appealing layout.
-            </p>
+          <h3>Gym Website</h3>
+          <p>
+            Designed a modern and responsive gym website with a clean user
+            interface and visually appealing layout.
+          </p>
         </div>
-
-    </div>
-
-</section>
+      </div>
+    </section>
 
     <section class="contact">
       <p class="contact-small">
@@ -669,13 +633,24 @@ padding:20px;
 
       <h2>Contact me</h2>
 
-      <form action="" class="contact-form">
+      <form
+        action="https://formsubmit.co/aroojmehmood840@gmail.com"
+        method="POST"
+        class="contact-form"
+      >
         <div class="input">
-          <input type="text" placeholder="Name" />
-          <input type="email" placeholder="Email" />
+          <input type="text" name="name" placeholder="Your Name" required />
+
+          <input type="email" name="email" placeholder="Your Email" required />
         </div>
 
-        <textarea name="message" placeholder="Message"></textarea>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+
+        <input type="hidden" name="_captcha" value="false" />
+
+        <input type="hidden" name="_subject" value="New Portfolio Message" />
+
+        <input type="hidden" name="_template" value="table" />
         <button type="submit">Send Message</button>
       </form>
     </section>
