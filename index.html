@@ -19,6 +19,12 @@
     />
 
     <style>
+      :root {
+        --accent-2: #575d5d; /* secondary accent (teal) for highlights */
+        --border: rgba(255, 255, 255, 0.08);
+        --text: #eef0f4; /* main text on dark background */
+      }
+
       * {
         margin: 0;
         padding: 0;
@@ -104,10 +110,22 @@
       }
 
       .right a {
-        color: #555;
+        /* color: #555; */
+
+        /* color: var(--text); */
+        color: #333;
+        border: 1px solid var(--border);
+        border-radius: 50%;
+        transition: 0.25s ease;
+        width: 38px;
+        height: 38px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
         margin: 10px;
         font-size: 25px;
-        display: inline-block;
+        /* display: inline-block; */
         transition: transform 0.3s;
       }
       .left p {
@@ -120,6 +138,13 @@
       .linkedin:hover {
         /* font-size: 30px; */
         transform: scale(2);
+      }
+
+      .github:hover,
+      .linkedin:hover {
+        border-color: var(--accent-2);
+        color: var(--accent-2);
+        transform: translateY(-3px);
       }
 
       .right {
@@ -198,11 +223,13 @@
         border-radius: 12px;
         background: #fff;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        transition: 0.3s;
+        transition: 0.25s ease;
       }
 
       .skill:hover {
         transform: translateY(-8px);
+        border: 1px solid #333;
+        box-shadow: 0 1px 30px rgba(0, 0, 0, 0.35);
       }
 
       .skill i {
@@ -252,13 +279,15 @@
         padding: 30px;
         border-radius: 15px;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-        transition: 0.3s;
+        transition: 0.3s ease;
         text-align: left;
+        border-top: 4px solid #9ab5c2;
       }
 
       .project-card:hover {
         transform: translateY(-8px);
-        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        border-top-color: #85dcd8;
+        box-shadow: 0 16px 32px rgba(0, 0, 0, 0.35);
       }
 
       .project-card h3 {
@@ -304,26 +333,43 @@
 
       .input input {
         width: 100%;
-        padding: 10px;
+        padding: 13px;
         border: none;
+        border-radius: 8px;
+        transition: border-color 0.2s ease;
       }
 
       .contact-form textarea {
         width: 100%;
         height: 120px;
-        padding: 10px;
+        padding: 13px;
         border: none;
         margin-bottom: 15px;
+        border-radius: 8px;
+        transition: border-color 0.2s ease;
+      }
+
+       .input input:focus,
+      .contact-form textarea:focus {
+        outline: none;
+        border:1px solid #858481;
       }
 
       .contact button {
         width: 100%;
-        padding: 10px;
-        background: #2ea3ff;
+        padding: 13px;
+        border-radius: 8px;
+        background: linear-gradient(90deg, #6c63ff, #22d3c9);
         border: none;
         color: white;
         font-weight: bold;
         cursor: pointer;
+        transition: opacity 0.2s ease, transform 0.15s ease;
+      }
+
+      .contact button:hover {
+        opacity: 0.9;
+        transform: translateY(-2px);
       }
 
       .foot {
@@ -353,7 +399,7 @@
 
           width: 250px;
           height: 100%;
-          background: #bdd1d9;;
+          background: #bdd1d9;
           display: flex;
           flex-direction: column;
           justify-content: flex-start;
@@ -391,14 +437,12 @@
       @media only screen and (max-width: 660px) {
         .link {
           gap: 0px;
-        
         }
 
         .link a {
           text-decoration: none;
           padding: 9px 4px;
           cursor: pointer;
-          
         }
 
         .heading h1 {
@@ -445,7 +489,7 @@
 
         .About {
           background: #f5f5f5;
-          padding: 40px 10%
+          padding: 40px 10%;
         }
 
         .About h2 {
@@ -460,9 +504,9 @@
           gap: 20px;
         }
 
-         .image {
-        padding: 4px;
-      }
+        .image {
+          padding: 4px;
+        }
 
         /* .image {
           padding: 6px;
@@ -479,13 +523,13 @@
           width: 121px;
         }
 
-       .project-card p {
-        font-size: 14px;
-       }
+        .project-card p {
+          font-size: 14px;
+        }
 
-       .skills p{
-        font-size: 15px;
-       }
+        .skills p {
+          font-size: 15px;
+        }
 
         .project-heading {
           font-size: 15px;
@@ -563,7 +607,7 @@
 
       <div class="hero-bottom">
         <div class="left">
-          <p>Nishter Colony,Lahore</p>
+          <p><i class="fa-solid fa-location-dot"></i> Nishter Colony, Lahore</p>
         </div>
 
         <div class="right">
