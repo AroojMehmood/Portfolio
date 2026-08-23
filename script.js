@@ -230,10 +230,15 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /*  Certificates Swiper  */
+  let certSwiper;
   if (window.Swiper) {
-    new Swiper('.cert-swiper', {
+    certSwiper = new Swiper('.cert-swiper', {
       slidesPerView: 1.2,
       spaceBetween: 20,
+      observer: true,
+      observeParents: true,
+      observeSlideChildren: true,
+      resizeObserver: true,
       pagination: { el: '.cert-swiper .swiper-pagination', clickable: true },
       breakpoints: {
         560: { slidesPerView: 2.2 },
@@ -241,6 +246,9 @@ document.addEventListener('DOMContentLoaded', () => {
         1200: { slidesPerView: 4.2 }
       }
     });
+   
+    window.addEventListener('load', () => certSwiper.update());
+    setTimeout(() => certSwiper.update(), 600);
   }
 
   /*  Toast notifications */
