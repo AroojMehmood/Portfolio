@@ -213,43 +213,129 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /*  Project filtering  */
+    /*  Project filtering + Show More  */
   const filterBtns = document.querySelectorAll('.filter-btn');
   const projectCards = document.querySelectorAll('.project-card');
+  const showMoreWrap = document.getElementById('showMoreWrap');
+  const showMoreBtn = document.getElementById('showMoreBtn');
+  const INITIAL_VISIBLE = 6; // how many cards to show before "Show More"
+  let activeFilter = 'all';
+  let showAll = false;
+
+  function renderProjects(refreshLayout) {
+    // Cards matching the current filter, in page order
+    const matching = Array.from(projectCards).filter(card => {
+      const cats = card.dataset.category || '';
+      return activeFilter === 'all' || cats.split(' ').includes(activeFilter);
+    });
+
+    projectCards.forEach(card => {
+      const index = matching.indexOf(card);
+      const visible = index !== -1 && (showAll || index < INITIAL_VISIBLE);
+      card.classList.toggle('hide', !visible);
+    });
+
+    // Show the button only when some matching cards are still hidden/expandable
+    const extra = matching.length - INITIAL_VISIBLE;
+    if (showMoreWrap && showMoreBtn) {
+      showMoreWrap.hidden = extra <= 0;
+      showMoreBtn.classList.toggle('is-open', showAll);
+      showMoreBtn.setAttribute('aria-expanded', showAll);
+      showMoreBtn.querySelector('span').textContent =
+        showAll ? 'Show Less' : `Show More Projects (${Math.max(extra, 0)})`;
+    }
+
+    // Page height changed, so recalculate scroll-based libraries
+    if (refreshLayout) {
+      if (window.AOS) AOS.refresh();
+      if (window.ScrollTrigger) ScrollTrigger.refresh();
+    }
+  }
+
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      const filter = btn.dataset.filter;
-      projectCards.forEach(card => {
-        const cats = card.dataset.category || '';
-        const show = filter === 'all' || cats.split(' ').includes(filter);
-        card.classList.toggle('hide', !show);
-      });
+      activeFilter = btn.dataset.filter;
+      showAll = false; // every new filter starts collapsed
+      renderProjects(true);
     });
   });
 
+  if (showMoreBtn) {
+    showMoreBtn.addEventListener('click', () => {
+      showAll = !showAll;
+      renderProjects(true);
+      // When collapsing, bring the user back to the top of the projects section
+      if (!showAll) {
+        const section = document.getElementById('work');
+        if (lenis) lenis.scrollTo(section, { offset: -70, duration: 1.1 });
+        else section.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  }
+
+    renderProjects(false); // initial state: first 6 only
+
+  const refreshScrollLibs = () => {
+    if (window.AOS) AOS.refresh();
+    if (window.ScrollTrigger) ScrollTrigger.refresh();
+  };
+  refreshScrollLibs();
+  window.addEventListener('load', () => setTimeout(refreshScrollLibs, 300));
+
   /*  Certificates Swiper  */
+  // let certSwiper;
+  // if (window.Swiper) {
+  //   certSwiper = new Swiper('.cert-swiper', {
+  //     slidesPerView: 1.2,
+  //     spaceBetween: 20,
+  //     observer: true,
+  //     observeParents: true,
+  //     observeSlideChildren: true,
+  //     resizeObserver: true,
+  //     pagination: { el: '.cert-swiper .swiper-pagination', clickable: true },
+  //     breakpoints: {
+  //       560: { slidesPerView: 2.2 },
+  //       900: { slidesPerView: 3.2 },
+  //       1200: { slidesPerView: 4.2 }
+  //     }
+  //   });
+   
+  //   window.addEventListener('load', () => certSwiper.update());
+  //   setTimeout(() => certSwiper.update(), 600);
+  // }
+
+  /*  Certificates Swiper (auto-scrolling + draggable)  */
   let certSwiper;
   if (window.Swiper) {
+    // Duplicate the cards once so loop mode has enough slides to scroll endlessly
+    const certWrapper = document.querySelector('.cert-swiper .swiper-wrapper');
+    certWrapper.innerHTML += certWrapper.innerHTML;
+
     certSwiper = new Swiper('.cert-swiper', {
       slidesPerView: 1.2,
       spaceBetween: 20,
+      loop: true,
+      speed: 2500,
+      grabCursor: true,
+      autoplay: reduceMotion ? false : {
+        delay: 0,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true
+      },
       observer: true,
       observeParents: true,
-      observeSlideChildren: true,
       resizeObserver: true,
-      pagination: { el: '.cert-swiper .swiper-pagination', clickable: true },
       breakpoints: {
         560: { slidesPerView: 2.2 },
         900: { slidesPerView: 3.2 },
         1200: { slidesPerView: 4.2 }
       }
     });
-   
     window.addEventListener('load', () => certSwiper.update());
-    setTimeout(() => certSwiper.update(), 600);
   }
+
 
   /*  Toast notifications */
   const toastStack = document.getElementById('toastStack');

@@ -1121,6 +1121,15 @@ h5 {
   grid-template-columns: repeat(3, 1fr);
   gap: var(--s-4);
 }
+/* Show More Projects button */
+.show-more-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--s-6);
+}
+.show-more-wrap[hidden] { display: none; }
+.show-more-wrap .btn i { transition: transform 0.35s var(--ease); }
+.show-more-wrap .btn.is-open i { transform: rotate(180deg); }
 
 .project-card {
   border-radius: var(--radius-lg);
@@ -1718,3 +1727,5 @@ h5 {
 .contact-form {
   padding: 40px 20px;
 }
+
+.cert-swiper .swiper-wrapper { transition-timing-function: linear; }
